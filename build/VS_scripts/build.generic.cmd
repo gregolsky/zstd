@@ -32,6 +32,9 @@ SET msbuild="%windir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe"
 SET msbuild_vs2017community="%programfiles(x86)%\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
 SET msbuild_vs2017professional="%programfiles(x86)%\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe"
 SET msbuild_vs2017enterprise="%programfiles(x86)%\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe"
+SET msbuild_vs2019community="%programfiles(x86)%\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"
+SET msbuild_vs2019professional="%programfiles(x86)%\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+SET msbuild_vs2019enterprise="%programfiles(x86)%\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"
 IF %msbuild_version% == VS2013 SET msbuild="%programfiles(x86)%\MSBuild\12.0\Bin\MSBuild.exe"
 IF %msbuild_version% == VS2015 SET msbuild="%programfiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe"
 IF %msbuild_version% == VS2017Community SET msbuild=%msbuild_vs2017community%
@@ -41,6 +44,11 @@ IF %msbuild_version% == VS2017 (
 	IF EXIST %msbuild_vs2017community% SET msbuild=%msbuild_vs2017community%
 	IF EXIST %msbuild_vs2017professional% SET msbuild=%msbuild_vs2017professional%
 	IF EXIST %msbuild_vs2017enterprise% SET msbuild=%msbuild_vs2017enterprise%
+)
+IF %msbuild_version% == VS2019 (
+	IF EXIST %msbuild_vs2019community% SET msbuild=%msbuild_vs2019community%
+	IF EXIST %msbuild_vs2019professional% SET msbuild=%msbuild_vs2019professional%
+	IF EXIST %msbuild_vs2019enterprise% SET msbuild=%msbuild_vs2019enterprise%
 )
 
 SET project="%~p0\..\VS2010\zstd.sln"
